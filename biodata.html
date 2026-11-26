@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#9bdcff">
+  <title>Tugas 1. Biodata</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="welcome-screen">
+    <div class="page-stage">
+      <section class="view main-menu-view is-active" data-view="main-menu" aria-label="Biodata main menu" aria-hidden="false">
+        <svg class="doodle-filter-defs" aria-hidden="true" focusable="false">
+          <defs>
+            <filter id="crayon-edge" x="-8%" y="-8%" width="116%" height="116%">
+              <feTurbulence type="fractalNoise" baseFrequency=".075" numOctaves="2" seed="17" result="grain"/>
+              <feDisplacementMap in="SourceGraphic" in2="grain" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+          </defs>
+        </svg>
+        <div class="menu-doodles" aria-hidden="true">
+          <svg class="doodle doodle-flow-one" viewBox="0 0 160 130">
+            <g class="crayon-lines" filter="url(#crayon-edge)">
+              <path d="M12 48 C15 20 42 19 46 41 C50 59 29 62 29 42 C29 18 62 16 68 41 C73 64 49 68 49 46 C49 20 84 18 91 42 C97 64 76 67 76 45 C76 24 105 22 113 47" stroke="#f2c56c"/>
+              <path d="M21 62 C35 53 43 52 54 60" stroke="#f3aeb9"/>
+            </g>
+          </svg>
+          <svg class="doodle doodle-flow-two" viewBox="0 0 160 130">
+            <g class="crayon-lines" filter="url(#crayon-edge)">
+              <path d="M16 52 C23 29 42 29 47 47 C51 62 35 67 32 53 C29 41 40 37 49 41 C61 47 69 61 82 51 C93 43 98 29 111 32" stroke="#b8d7a2"/>
+              <path d="M43 56 C55 73 75 74 88 62" stroke="#f4b8c9"/>
+            </g>
+          </svg>
+          <svg class="doodle doodle-flow-three" viewBox="0 0 130 130">
+            <g class="crayon-lines" filter="url(#crayon-edge)">
+              <path d="M18 59 C18 36 47 30 55 48 C64 69 36 72 34 53 C32 34 65 28 76 45 C91 68 61 80 53 61 C46 43 74 32 94 43" stroke="#d5b6e4"/>
+              <path d="M29 23 C42 15 51 20 57 29" stroke="#f2c56c"/>
+            </g>
+          </svg>
+          <svg class="doodle doodle-flow-four" viewBox="0 0 160 130">
+            <g class="crayon-lines" filter="url(#crayon-edge)">
+              <path d="M12 48 C20 24 45 22 51 42 C57 62 32 67 31 48 C30 31 56 27 67 45 C78 63 57 73 53 57 C49 39 79 29 91 46 C101 61 82 70 77 54 C72 38 101 27 116 46" stroke="#f3aeb9"/>
+              <path d="M45 68 C61 77 82 75 96 63" stroke="#b8d7a2"/>
+            </g>
+          </svg>
+          <svg class="doodle doodle-flow-five" viewBox="0 0 130 130">
+            <g class="crayon-lines" filter="url(#crayon-edge)">
+              <path d="M14 51 C21 33 43 32 48 48 C54 67 29 70 29 52 C30 35 55 31 66 47 C77 64 57 77 51 61 C45 45 76 33 92 47" stroke="#c8b9e8"/>
+              <path d="M31 77 C47 67 60 70 72 79" stroke="#f4b8c9"/>
+            </g>
+          </svg>
+          <svg class="doodle doodle-flow-six" viewBox="0 0 150 125">
+            <g class="crayon-lines" filter="url(#crayon-edge)">
+              <path d="M12 55 C20 29 45 29 51 49 C56 68 32 73 30 54 C28 36 55 30 68 47 C80 63 60 74 55 58 C50 41 78 31 93 47" stroke="#b8d7a2"/>
+              <path d="M27 79 C42 71 56 75 67 83" stroke="#f2c56c"/>
+            </g>
+          </svg>
+          <svg class="doodle doodle-flow-seven" viewBox="0 0 110 100">
+            <g class="crayon-lines" filter="url(#crayon-edge)">
+              <path d="M10 54 C17 30 38 29 44 47 C50 64 29 69 27 51 C25 36 47 31 58 46 C70 62 52 72 47 57 C42 42 66 33 79 46" stroke="#f3aeb9"/>
+              <path d="M32 75 C43 68 53 69 63 76" stroke="#c8b9e8"/>
+            </g>
+          </svg>
+        </div>
+        <div class="main-menu-content">
+          <p class="menu-greeting">Hello!</p>
+          <nav class="section-grid" aria-label="Biodata sections">
+            <button class="section-card" type="button" data-open="biodata"><span class="card-index">01</span><span class="card-label">Biodata</span><span class="card-arrow" aria-hidden="true">↗</span></button>
+            <button class="section-card" type="button" data-open="gallery"><span class="card-index">02</span><span class="card-label">Gallery Photos</span><span class="card-arrow" aria-hidden="true">↗</span></button>
+            <button class="section-card" type="button" data-open="videos"><span class="card-index">03</span><span class="card-label">Gallery Videos</span><span class="card-arrow" aria-hidden="true">↗</span></button>
+            <button class="section-card" type="button" data-open="hobby"><span class="card-index">04</span><span class="card-label">Hobby</span><span class="card-arrow" aria-hidden="true">↗</span></button>
+          </nav>
+          <nav class="page-navigation main-menu-navigation" aria-label="Back to welcome">
+            <a class="section-link previous-link" href="index.html"><span aria-hidden="true">←</span> Welcome</a>
+          </nav>
+        </div>
+      </section>
+
+      <section class="view biodata-view" data-view="biodata" aria-labelledby="biodata-title" aria-hidden="true">
+        <div class="page-content">
+          <h1 class="page-title" id="biodata-title">Biodata</h1>
+          <div class="bio-layout">
+            <figure class="profile-card">
+              <img class="profile-photo" src="profile-photo.jpg" alt="Rizqa Sabila Nurfitri">
+              <figcaption>Rizqa Sabila Nurfitri</figcaption>
+            </figure>
+            <dl class="bio-details">
+              <div class="bio-item"><dt>Place and date of birth</dt><dd>Banjarbaru, 14 Februari 2006</dd></div>
+              <div class="bio-item"><dt>Address</dt><dd>Jln. Hamransani No 10. Komplek Lambung Mangkurat Persada</dd></div>
+              <div class="bio-item"><dt>Email</dt><dd><a href="mailto:rizqasabilanurfitri@gmail.com">rizqasabilanurfitri@gmail.com</a></dd></div>
+            </dl>
+          </div>
+          <nav class="page-navigation" aria-label="Section navigation">
+            <button class="section-link previous-link" type="button" data-open="main-menu"><span aria-hidden="true">←</span> Menu</button>
+            <button class="section-link next-link" type="button" data-open="gallery">Gallery Photos <span aria-hidden="true">→</span></button>
+          </nav>
+        </div>
+      </section>
+
+      <section class="view gallery-view" data-view="gallery" aria-labelledby="gallery-title" aria-hidden="true">
+        <div class="page-content gallery-content media-page">
+          <h1 class="page-title" id="gallery-title">Gallery Photos</h1>
+          <div class="media-grid photo-grid">
+            <figure class="media-tile">
+              <div class="media-window" data-placeholder="Add image path in this page">
+                <img class="gallery-image" src="images/gallery-photos/front.jpg" alt="Front view" loading="lazy">
+              </div>
+              <figcaption>Front</figcaption>
+            </figure>
+            <figure class="media-tile">
+              <div class="media-window" data-placeholder="Add image path in this page">
+                <img class="gallery-image" src="images/gallery-photos/left.jpg" alt="Left view" loading="lazy">
+              </div>
+              <figcaption>Left</figcaption>
+            </figure>
+            <figure class="media-tile">
+              <div class="media-window" data-placeholder="Add image path in this page">
+                <img class="gallery-image" src="images/gallery-photos/right.jpg" alt="Right view" loading="lazy">
+              </div>
+              <figcaption>Right</figcaption>
+            </figure>
+            <figure class="media-tile">
+              <div class="media-window" data-placeholder="Add image path in this page">
+                <img class="gallery-image" src="images/gallery-photos/back.jpg" alt="Back view" loading="lazy">
+              </div>
+              <figcaption>Back</figcaption>
+            </figure>
+            <figure class="media-tile">
+              <div class="media-window" data-placeholder="Add image path in this page">
+                <img class="gallery-image" src="images/gallery-photos/room.jpg" alt="Room view" loading="lazy">
+              </div>
+              <figcaption>Room</figcaption>
+            </figure>
+          </div>
+          <nav class="page-navigation" aria-label="Section navigation">
+            <button class="section-link previous-link" type="button" data-open="main-menu"><span aria-hidden="true">←</span> Menu</button>
+            <button class="section-link next-link" type="button" data-open="videos">Gallery Videos <span aria-hidden="true">→</span></button>
+          </nav>
+        </div>
+      </section>
+
+      <section class="view gallery-view" data-view="videos" aria-labelledby="videos-title" aria-hidden="true">
+        <div class="page-content gallery-content media-page">
+          <h1 class="page-title" id="videos-title">Gallery Videos</h1>
+          <div class="media-grid video-grid">
+            <figure class="media-tile">
+              <div class="media-window video-window" data-placeholder="Add video path in this page">
+                <video controls playsinline preload="auto" aria-label="Front video"><source src="videos/gallery-videos/front.mp4" type="video/mp4"></video>
+              </div>
+              <figcaption>Front</figcaption>
+            </figure>
+            <figure class="media-tile">
+              <div class="media-window video-window" data-placeholder="Add video path in this page">
+                <video controls playsinline preload="auto" aria-label="Left video"><source src="videos/gallery-videos/left.mp4" type="video/mp4"></video>
+              </div>
+              <figcaption>Left</figcaption>
+            </figure>
+            <figure class="media-tile">
+              <div class="media-window video-window" data-placeholder="Add video path in this page">
+                <video controls playsinline preload="auto" aria-label="Right video"><source src="videos/gallery-videos/right.mp4" type="video/mp4"></video>
+              </div>
+              <figcaption>Right</figcaption>
+            </figure>
+            <figure class="media-tile">
+              <div class="media-window video-window" data-placeholder="Add video path in this page">
+                <video controls playsinline preload="auto" aria-label="Back video"><source src="videos/gallery-videos/back.mp4" type="video/mp4"></video>
+              </div>
+              <figcaption>Back</figcaption>
+            </figure>
+            <figure class="media-tile">
+              <div class="media-window video-window" data-placeholder="Add video path in this page">
+                <video controls playsinline preload="auto" aria-label="Room video"><source src="videos/gallery-videos/room.mp4" type="video/mp4"></video>
+              </div>
+              <figcaption>Room</figcaption>
+            </figure>
+          </div>
+          <nav class="page-navigation" aria-label="Section navigation">
+            <button class="section-link previous-link" type="button" data-open="gallery"><span aria-hidden="true">←</span> Gallery Photos</button>
+            <button class="section-link next-link" type="button" data-open="hobby">Hobby <span aria-hidden="true">→</span></button>
+          </nav>
+        </div>
+      </section>
+
+      <section class="view gallery-view" data-view="hobby" aria-labelledby="hobby-title" aria-hidden="true">
+        <div class="page-content gallery-content media-page hobby-page">
+          <h1 class="page-title" id="hobby-title">Hobby</h1>
+          <p class="hobby-description">Membaca adalah salah satu hobi saya. Saya suka menikmati cerita dan mendapatkan wawasan baru dari berbagai buku.</p>
+          <div class="media-grid hobby-grid">
+            <figure class="media-tile hobby-tile">
+              <div class="media-window" data-placeholder="Add your hobby image path in this page">
+                <img class="gallery-image" src="images/hobby/hobby-1.jpg" alt="Hobby photo" loading="lazy">
+              </div>
+            </figure>
+            <figure class="media-tile hobby-tile">
+              <div class="media-window" data-placeholder="Add your hobby image path in this page">
+                <img class="gallery-image" src="images/hobby/hobby-2.jpg" alt="Hobby photo" loading="lazy">
+              </div>
+            </figure>
+          </div>
+          <nav class="page-navigation" aria-label="Section navigation">
+            <button class="section-link menu-return" type="button" data-open="main-menu">Back to Menu</button>
+          </nav>
+        </div>
+      </section>
+
+
+    </div>
+<div class="paw-cursor" aria-hidden="true">
+      <svg viewBox="0 0 48 48" focusable="false">
+        <ellipse cx="12" cy="18" rx="5.2" ry="6.8" fill="#fffdf8" stroke="#304239" stroke-width="1.5" transform="rotate(-24 12 18)"/>
+        <ellipse cx="21" cy="11.5" rx="5.1" ry="6.8" fill="#fffdf8" stroke="#304239" stroke-width="1.5" transform="rotate(-8 21 11.5)"/>
+        <ellipse cx="30" cy="12.5" rx="5.1" ry="6.8" fill="#fffdf8" stroke="#304239" stroke-width="1.5" transform="rotate(12 30 12.5)"/>
+        <ellipse cx="38" cy="20" rx="5.2" ry="6.8" fill="#fffdf8" stroke="#304239" stroke-width="1.5" transform="rotate(28 38 20)"/>
+        <path d="M24 20c-4.7 0-7.5 4.7-10.1 8.2-3.2 4.2-2.6 9.5 2 11.2 2.8 1 5.2-.7 8.1-.7 3.1 0 5.7 1.8 8.5.5 4.3-2 4.6-7.1 1.3-11.2C31.4 24.5 28.6 20 24 20Z" fill="#fffdf8" stroke="#304239" stroke-width="1.5"/>
+        <path d="M24 25.5c-2.1 0-3.5 1.6-3.5 3.2 0 1.9 2 3.3 3.5 4.2 1.5-.9 3.5-2.3 3.5-4.2 0-1.6-1.4-3.2-3.5-3.2Z" fill="#d9e1d9" stroke="#304239" stroke-width=".7"/>
+      </svg>
+    </div>
+  </main>
+</body>
+</html>

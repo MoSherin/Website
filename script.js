@@ -4,9 +4,10 @@ const views = [...document.querySelectorAll(".view")];
 const pawCursor = document.querySelector(".paw-cursor");
 const bubbleTransition = document.querySelector(".bubble-transition");
 const formView = document.querySelector(".form-view");
-const googleEmbed = formView.querySelector("iframe");
-const embedButtons = formView.querySelectorAll("[data-embed]");
-let activeEmbedPair = "one";
+const googleEmbed = formView?.querySelector("iframe");
+const embedButtons = formView ? [...formView.querySelectorAll("[data-embed]")] : [];
+const activityDiagramButton = document.querySelector("#activity-diagram-button");
+let activeEmbedPair = document.body.dataset.embedPair || "one";
 const embedSources = {
   one: {
     form: "https://docs.google.com/forms/d/e/1FAIpQLSe2ogIm7tbw0D5VBYoz-KBFnjT5TKmGe0Rc_pvP8KjWvE0m-g/viewform?embedded=true",
@@ -19,11 +20,13 @@ const embedSources = {
 };
 
 const menuDoodles = document.querySelector(".menu-doodles");
-document.querySelectorAll(".biodata-view, .gallery-view").forEach((view) => {
-  const pageDoodles = menuDoodles.cloneNode(true);
-  pageDoodles.classList.add("page-doodles");
-  view.prepend(pageDoodles);
-});
+if (menuDoodles) {
+  document.querySelectorAll(".biodata-view, .gallery-view").forEach((view) => {
+    const pageDoodles = menuDoodles.cloneNode(true);
+    pageDoodles.classList.add("page-doodles");
+    view.prepend(pageDoodles);
+  });
+}
 
 // Show a helpful surface until each locally supplied media file is available.
 document.querySelectorAll(".media-window").forEach((frame) => {
@@ -70,38 +73,45 @@ if (window.matchMedia("(pointer: fine)").matches && pawCursor) {
   window.addEventListener("focus", () => pawCursor.classList.add("is-visible"));
 }
 
-for (let i = 0; i < 22; i += 1) {
-  const bubble = document.createElement("span");
-  bubble.className = "bubble";
-  bubble.setAttribute("aria-hidden", "true");
-  bubble.style.left = `${Math.random() * 100}%`;
-  bubble.style.setProperty("--size", `${12 + Math.random() * 34}px`);
-  bubble.style.setProperty("--duration", `${11 + Math.random() * 15}s`);
-  bubble.style.setProperty("--delay", `${-Math.random() * 24}s`);
-  bubble.style.setProperty("--drift", `${-65 + Math.random() * 130}px`);
-  bubbleLayer.append(bubble);
+if (bubbleLayer) {
+  for (let i = 0; i < 22; i += 1) {
+    const bubble = document.createElement("span");
+    bubble.className = "bubble";
+    bubble.setAttribute("aria-hidden", "true");
+    bubble.style.left = `${Math.random() * 100}%`;
+    bubble.style.setProperty("--size", `${12 + Math.random() * 34}px`);
+    bubble.style.setProperty("--duration", `${11 + Math.random() * 15}s`);
+    bubble.style.setProperty("--delay", `${-Math.random() * 24}s`);
+    bubble.style.setProperty("--drift", `${-65 + Math.random() * 130}px`);
+    bubbleLayer.append(bubble);
+  }
 }
 
 const confettiColors = ["#fff0a8", "#ffffff", "#ffd2d9", "#c8f5ec", "#d8d1ff", "#ffd6a1"];
-for (let i = 0; i < 48; i += 1) {
-  const piece = document.createElement("span");
-  piece.className = "confetti";
-  piece.setAttribute("aria-hidden", "true");
-  piece.style.setProperty("--left", `${Math.random() * 100}%`);
-  piece.style.setProperty("--width", `${4 + Math.random() * 5}px`);
-  piece.style.setProperty("--height", `${7 + Math.random() * 8}px`);
-  piece.style.setProperty("--color", confettiColors[Math.floor(Math.random() * confettiColors.length)]);
-  piece.style.setProperty("--duration", `${8 + Math.random() * 12}s`);
-  piece.style.setProperty("--delay", `${-Math.random() * 20}s`);
-  piece.style.setProperty("--turn", `${Math.random() * 360}deg`);
-  piece.style.setProperty("--sway", `${-80 + Math.random() * 160}px`);
-  confettiLayer.append(piece);
+if (confettiLayer) {
+  for (let i = 0; i < 48; i += 1) {
+    const piece = document.createElement("span");
+    piece.className = "confetti";
+    piece.setAttribute("aria-hidden", "true");
+    piece.style.setProperty("--left", `${Math.random() * 100}%`);
+    piece.style.setProperty("--width", `${4 + Math.random() * 5}px`);
+    piece.style.setProperty("--height", `${7 + Math.random() * 8}px`);
+    piece.style.setProperty("--color", confettiColors[Math.floor(Math.random() * confettiColors.length)]);
+    piece.style.setProperty("--duration", `${8 + Math.random() * 12}s`);
+    piece.style.setProperty("--delay", `${-Math.random() * 20}s`);
+    piece.style.setProperty("--turn", `${Math.random() * 360}deg`);
+    piece.style.setProperty("--sway", `${-80 + Math.random() * 160}px`);
+    confettiLayer.append(piece);
+  }
 }
 
 function showView(name) {
   const current = document.querySelector(".view.is-active");
   const next = views.find((view) => view.dataset.view === name);
   if (!current || !next || current === next) return;
+
+  // Start each destination at its top so page headings stay visible.
+  next.scrollTop = 0;
 
   const movingForward = views.indexOf(next) > views.indexOf(current);
   const leavingClass = movingForward ? "is-past" : "is-future";
@@ -131,10 +141,13 @@ document.querySelectorAll("[data-open]").forEach((button) => {
 document.querySelectorAll("[data-form-pair]").forEach((button) => {
   button.addEventListener("click", () => {
     activeEmbedPair = button.dataset.formPair;
+    if (activityDiagramButton) activityDiagramButton.hidden = activeEmbedPair !== "two";
     setEmbedMode("form");
     showView("google-tools");
   });
 });
+
+activityDiagramButton?.addEventListener("click", () => showView("activity-diagram"));
 
 function showThroughBubbles(name) {
   if (bubbleTransition.classList.contains("is-covering")) return;
@@ -180,6 +193,7 @@ document.querySelectorAll("[data-bubble-transition]").forEach((button) => {
 });
 
 function setEmbedMode(mode) {
+  if (!googleEmbed) return;
   googleEmbed.src = embedSources[activeEmbedPair][mode];
   googleEmbed.title = mode === "form" ? "Google Form" : "Google Spreadsheet";
   embedButtons.forEach((button) => {
